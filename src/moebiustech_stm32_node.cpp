@@ -40,8 +40,8 @@ int main(int argc, char** argv){
     BoardJoints bj;
     controller_manager::ControllerManager cm(&bj,nh);
 
-    ros::Subscriber getFeedback = nh.subscribe("/moebiustech_board/feedback",1,&BoardJoints::callback,&bj);
-    ros::Publisher drive = nh.advertise<moebiustech_stm32_ros::Drive>("/moebiustech_board/cmd_drive", 1);
+    ros::Subscriber getFeedback = nh.subscribe("/moebiustech_stm32/feedback",1,&BoardJoints::callback,&bj);
+    ros::Publisher drive = nh.advertise<moebiustech_stm32_ros::Drive>("/moebiustech_stm32/cmd_drive", 1);
     moebiustech_stm32_ros::Drive msg_drive;
 
     ros::AsyncSpinner spinner(0, &queue);
